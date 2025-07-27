@@ -1,0 +1,15 @@
+# .github/workflows/ci.yml
+
+- name: Link check with lychee
+  uses: lycheeverse/lychee-action@f81112d0d2814ded911bd23e3beaa9dda9093915
+  with:
+    args: >
+      --no-progress
+      --format markdown
+      --fail-if-empty
+      --ignore "https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/netconfig.md#http-proxy"
+      --ignore "https://gh.io/gcm/env#GCM_AZREPOS_SP_SECRET"
+      --ignore "https://gh.io/gcm/env#GCM_AZREPOS_SP_CERT_THUMBPRINT"
+    output: lychee/out.md
+    lycheeVersion: v0.17.0
+    token: ${{ secrets.GITHUB_TOKEN }}
